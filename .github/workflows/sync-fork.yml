@@ -8,11 +8,9 @@ name: Sync fork with upstream
 
 on:
   schedule:
-    # Default: every 6 hours at minute 17. Minute 17 deliberately
-    # avoids the on-the-hour cron stampede on GitHub's shared
-    # runners (everyone defaults to `0 */6 * * *`, which queues your
-    # job behind thousands of others). Adjust the */N as needed.
-    - cron: '17 */6 * * *'
+    # Weekly: Monday 03:17 UTC (11:17 Beijing time). Minute 17
+    # avoids the on-the-hour cron stampede on GitHub's shared runners.
+    - cron: '17 3 * * 1'
   workflow_dispatch:
 
 # Don't let two sync runs race each other. cancel-in-progress is
